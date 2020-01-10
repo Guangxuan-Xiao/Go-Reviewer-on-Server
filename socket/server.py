@@ -2,7 +2,7 @@
 
 import socket  # Import socket module
 
-port = 60000  # Reserve a port for your service.
+port = 50000  # Reserve a port for your service.
 s = socket.socket()  # Create a socket object
 host = socket.gethostname()  # Get local machine name
 print("Host:", host)
@@ -18,7 +18,7 @@ while True:
     print("Server received: ", data.decode("utf-8"))
 
     filename = "mytext.txt"
-    with open(filename, "wb+") as f:
+    with open(filename, "rb") as f:
         l = f.read(1024)
         while l:
             conn.send(l)
